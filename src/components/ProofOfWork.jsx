@@ -1,6 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
 import { projects } from "../data/projects";
-import SectionHeader from "./SectionHeader";
 
 function ProjectCard({ project, index }) {
   return (
@@ -65,7 +64,32 @@ function ProjectCard({ project, index }) {
 export default function ProofOfWork() {
   return (
     <section id="about" className="w-full">
-      <SectionHeader kicker="Terminal" index="01" title="Proof of work" />
+      <div className="px-4 pb-10 pt-14 sm:px-8 sm:pt-16 lg:px-12">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="flex flex-wrap items-baseline gap-x-[0.9em] font-mono text-xs font-semibold uppercase tracking-[0.1em] text-ink-kicker sm:text-sm">
+              <span>Terminal</span>
+              <span aria-hidden="true">-</span>
+              <span>01</span>
+            </p>
+
+            <h2 className="mt-[0.28em] font-display text-[clamp(2rem,6vw,4.5rem)] font-bold leading-[0.95] tracking-[-0.01em] text-ink-title">
+              Proof of work
+            </h2>
+          </div>
+
+          <a
+            href="https://github.com/Moeez34"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-1 inline-flex shrink-0 items-center gap-2 rounded-full border border-[#2a2a2a] bg-[#f2f2ee] px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-white sm:px-5 sm:py-2.5"
+          >
+            <span>View all work</span>
+            <span aria-hidden="true" className="text-base leading-none">+</span>
+          </a>
+        </div>
+      </div>
+
       <div className="flex flex-col gap-14 px-4 pb-20 sm:gap-16 sm:px-8 lg:px-12">
         {projects.map((project, index) => (
           <ProjectCard key={project.title} project={project} index={index} />
