@@ -65,7 +65,7 @@ export default function ProofOfWork() {
   return (
     <section id="about" className="w-full">
       <div className="px-4 pb-10 pt-14 sm:px-8 sm:pt-16 lg:px-12">
-        <div className="flex items-start justify-between gap-4">
+        <div className="flex items-end justify-between gap-4">
           <div>
             <p className="flex flex-wrap items-baseline gap-x-[0.9em] font-mono text-xs font-semibold uppercase tracking-[0.1em] text-ink-kicker sm:text-sm">
               <span>Terminal</span>
@@ -82,7 +82,7 @@ export default function ProofOfWork() {
             href="https://github.com/Moeez34"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-1 inline-flex shrink-0 items-center gap-2 rounded-full border border-[#2a2a2a] bg-[#f2f2ee] px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-white sm:px-5 sm:py-2.5"
+            className="mb-1 inline-flex shrink-0 items-center gap-2 rounded-full border border-[#2a2a2a] bg-[#f2f2ee] px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-white sm:mb-2 sm:px-5 sm:py-2.5"
           >
             <span>View all work</span>
             <span aria-hidden="true" className="text-base leading-none">+</span>
