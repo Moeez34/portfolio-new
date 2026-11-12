@@ -58,7 +58,6 @@ export default function NavBar() {
     <nav className="w-full bg-black">
       <div className="flex w-full justify-center px-6 py-10 sm:py-12">
         <div className="w-full max-w-[420px]">
-          <div className="h-px w-full bg-[#6b6b6b]" />
           <ul className="flex items-center justify-between px-4 py-4 sm:px-6">
             {items.map((item) => (
               <li key={item.label}>
@@ -76,7 +75,6 @@ export default function NavBar() {
               </li>
             ))}
           </ul>
-          <div className="h-px w-full bg-[#6b6b6b]" />
         </div>
       </div>
     </nav>
