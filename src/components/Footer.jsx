@@ -23,7 +23,8 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-ink-border/60">
+    <footer className="w-full">
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-4 py-10 sm:px-8">
         <ul className="flex items-center gap-5 sm:gap-6">
           {socials.map((social) => (
