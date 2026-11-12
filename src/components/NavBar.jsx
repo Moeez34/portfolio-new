@@ -1,32 +1,82 @@
+import { HugeiconsIcon } from "@hugeicons/react";
+import { BloggerIcon } from "@hugeicons/core-free-icons";
+import { FileText, UserRound } from "lucide-react";
+
 export default function NavBar() {
-  const links = [
-    { label: "About", href: "#about" },
-    { label: "resume", href: "/Syed_Moeez_Ahmed_Resume.pdf" },
-    { label: "contact", href: "#contact" },
-    { label: "blogs", href: "#blogs" },
+  const items = [
+    {
+      label: "Home",
+      href: "#home",
+      icon: (
+        <img
+          src="/icons/home.png"
+          alt=""
+          className="size-6 brightness-0 invert opacity-90 transition-opacity group-hover:opacity-100 sm:size-7"
+          draggable="false"
+        />
+      ),
+    },
+    {
+      label: "About",
+      href: "#about",
+      icon: <UserRound className="size-6 text-[#d6d6d6] transition-colors group-hover:text-white sm:size-7" strokeWidth={1.8} />,
+    },
+    {
+      label: "Resume",
+      href: "/Syed_Moeez_Ahmed_Resume.pdf",
+      icon: <FileText className="size-6 text-[#d6d6d6] transition-colors group-hover:text-white sm:size-7" strokeWidth={1.8} />,
+      external: true,
+    },
+    {
+      label: "Contact",
+      href: "#contact",
+      icon: (
+        <img
+          src="/icons/contact.png"
+          alt=""
+          className="size-6 brightness-0 invert opacity-90 transition-opacity group-hover:opacity-100 sm:size-7"
+          draggable="false"
+        />
+      ),
+    },
+    {
+      label: "Blogs",
+      href: "#blogs",
+      icon: (
+        <HugeiconsIcon
+          icon={BloggerIcon}
+          size={28}
+          color="#d6d6d6"
+          strokeWidth={1.8}
+          className="transition-colors group-hover:[&_svg]:text-white"
+        />
+      ),
+    },
   ];
 
   return (
     <nav className="w-full bg-black">
       <div className="flex w-full justify-center px-6 py-10 sm:py-12">
         <div className="w-full max-w-[420px]">
-          <div className="h-px w-full bg-[#5a5a5a]" />
-          <ul className="flex items-center justify-between px-2 py-5 sm:px-4">
-            {links.map((link) => (
-              <li key={link.label}>
+          <div className="h-px w-full bg-[#6b6b6b]" />
+          <ul className="flex items-center justify-between px-4 py-4 sm:px-6">
+            {items.map((item) => (
+              <li key={item.label}>
                 <a
-                  href={link.href}
-                  className="text-[14px] leading-none text-[#d6d6d6] transition-colors hover:text-white sm:text-[15px]"
-                  {...(link.href.endsWith(".pdf")
+                  href={item.href}
+                  aria-label={item.label}
+                  title={item.label}
+                  className="group inline-flex items-center justify-center text-[#d6d6d6] transition-colors hover:text-white"
+                  {...(item.external
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
                 >
-                  {link.label}
+                  {item.icon}
                 </a>
               </li>
             ))}
           </ul>
-          <div className="h-px w-full bg-[#5a5a5a]" />
+          <div className="h-px w-full bg-[#6b6b6b]" />
         </div>
       </div>
     </nav>
