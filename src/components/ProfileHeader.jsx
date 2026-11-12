@@ -15,9 +15,40 @@ export default function ProfileHeader() {
         </div>
 
         <div className="mt-3">
-          <h1 className="text-xl font-extrabold leading-6 tracking-[-0.04em] text-ink-text">
-            {profile.name}
-          </h1>
+          <div className="flex flex-wrap items-center gap-3">
+            <h1 className="text-xl font-extrabold leading-6 tracking-[-0.04em] text-ink-text">
+              {profile.name}
+            </h1>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://x.com/moeez34"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X"
+                className="inline-flex opacity-80 transition-opacity hover:opacity-100"
+              >
+                <img src="/icons/twitter.svg" alt="" className="size-[18px]" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/moeez34"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="inline-flex opacity-80 transition-opacity hover:opacity-100"
+              >
+                <img src="/icons/linkedin.svg" alt="" className="size-[18px]" />
+              </a>
+              <a
+                href="https://github.com/Moeez34"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="inline-flex opacity-80 transition-opacity hover:opacity-100"
+              >
+                <img src="/icons/github.svg" alt="" className="size-[18px]" />
+              </a>
+            </div>
+          </div>
           <p className="text-[15px] leading-5 text-ink-muted">
             @{profile.handle}
           </p>
