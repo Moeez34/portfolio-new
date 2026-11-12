@@ -28,6 +28,19 @@ export default function NavBar() {
       external: true,
     },
     {
+      label: "Research",
+      href: "/Research-Paper-4.pdf",
+      icon: (
+        <img
+          src="/icons/research.png"
+          alt=""
+          className="size-5 brightness-0 invert opacity-90 transition-opacity group-hover:opacity-100"
+          draggable="false"
+        />
+      ),
+      external: true,
+    },
+    {
       label: "Contact",
       href: "#contact",
       icon: (
@@ -57,7 +70,7 @@ export default function NavBar() {
   return (
     <nav className="w-full bg-black">
       <div className="flex w-full justify-center px-6 py-6 sm:py-8">
-        <div className="w-full max-w-[360px] rounded-full border border-[#2a2a2a] bg-[#0b0b0b] px-5 py-2.5 sm:px-6 sm:py-3">
+        <div className="w-full max-w-[420px] rounded-full border border-[#2a2a2a] bg-[#0b0b0b] px-5 py-2.5 sm:px-6 sm:py-3">
           <ul className="flex items-center justify-between">
             {items.map((item) => (
               <li key={item.label}>
