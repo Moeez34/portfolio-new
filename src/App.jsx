@@ -1,6 +1,6 @@
 import NavBar from "./components/NavBar";
 import ProfileHeader from "./components/ProfileHeader";
-import SectionHeader from "./components/SectionHeader";
+import ProofOfWork from "./components/ProofOfWork";
 
 export default function App() {
   return (
@@ -8,7 +8,7 @@ export default function App() {
       <NavBar />
       <main className="min-h-dvh w-full">
         <ProfileHeader />
-        <SectionHeader kicker="Terminal" index="01" title="Proof of work" />
+        <ProofOfWork />
       </main>
     </div>
   );
