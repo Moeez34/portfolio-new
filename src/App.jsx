@@ -1,3 +1,4 @@
+import GitHubActivity from "./components/GitHubActivity";
 import NavBar from "./components/NavBar";
 import ProfileHeader from "./components/ProfileHeader";
 import ProofOfWork from "./components/ProofOfWork";
@@ -9,6 +10,9 @@ export default function App() {
       <main className="min-h-dvh w-full">
         <ProfileHeader />
         <ProofOfWork />
+        <section className="px-4 pb-20 sm:px-8 lg:px-12">
+          <GitHubActivity username="Moeez34" showMonths />
+        </section>
       </main>
     </div>
   );
