@@ -1,25 +1,23 @@
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
-
 const socials = [
   {
     label: "GitHub",
     href: "https://github.com/Moeez34",
-    icon: Github,
+    icon: "/icons/github.svg",
   },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/moeez34",
-    icon: Linkedin,
+    icon: "/icons/linkedin.svg",
   },
   {
     label: "Instagram",
     href: "https://www.instagram.com/moeez34",
-    icon: Instagram,
+    icon: "/icons/instagram.svg",
   },
   {
     label: "Twitter",
     href: "https://x.com/moeez34",
-    icon: Twitter,
+    icon: "/icons/twitter.svg",
   },
 ];
 
@@ -28,16 +26,24 @@ export default function Footer() {
     <footer className="w-full border-t border-ink-border/60">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-4 py-10 sm:px-8">
         <ul className="flex items-center gap-5 sm:gap-6">
-          {socials.map(({ label, href, icon: Icon }) => (
-            <li key={label}>
+          {socials.map((social) => (
+            <li key={social.label}>
               <a
-                href={href}
+                href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={label}
-                className="inline-flex items-center justify-center text-ink-muted transition-colors hover:text-ink-text"
+                aria-label={social.label}
+                className="inline-flex items-center justify-center opacity-70 transition-opacity hover:opacity-100"
               >
-                <Icon size={20} strokeWidth={1.8} />
+                <img
+                  src={social.icon}
+                  alt=""
+                  width={20}
+                  height={20}
+                  className="size-5"
+                  loading="lazy"
+                  decoding="async"
+                />
               </a>
             </li>
           ))}
