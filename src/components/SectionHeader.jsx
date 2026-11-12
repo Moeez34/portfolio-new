@@ -7,7 +7,7 @@ export default function SectionHeader({ kicker, index, title }) {
         <span>{index}</span>
       </p>
 
-      <h2 className="mt-[0.28em] font-display text-[clamp(2.5rem,9vw,7rem)] font-bold leading-[0.95] tracking-[-0.01em] text-ink-title">
+      <h2 className="mt-[0.28em] font-display text-[clamp(2rem,6vw,4.5rem)] font-bold leading-[0.95] tracking-[-0.01em] text-ink-title">
         {title}
       </h2>
     </section>
