@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import GitHubActivity from "./components/GitHubActivity";
 import NavBar from "./components/NavBar";
 import ProfileHeader from "./components/ProfileHeader";
@@ -10,7 +11,7 @@ export default function App() {
       <main className="min-h-dvh w-full">
         <ProfileHeader />
         <ProofOfWork />
-        <section className="flex flex-col items-center px-4 pb-20 sm:px-8 lg:px-12">
+        <section className="flex flex-col items-center px-4 pb-16 sm:px-8 lg:px-12">
           <GitHubActivity username="Moeez34" showMonths />
           <figure className="relative mt-10 w-full max-w-[720px] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-7 text-left sm:p-8">
             <span
@@ -30,6 +31,7 @@ export default function App() {
           </figure>
         </section>
       </main>
+      <Footer />
     </div>
   );
 }
