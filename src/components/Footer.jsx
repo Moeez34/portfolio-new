@@ -6,17 +6,17 @@ const socials = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/moeez34",
+    href: "https://www.linkedin.com/in/moeez-ahmed2504/",
     icon: "/icons/linkedin.svg",
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/moeez34",
+    href: "https://www.instagram.com/_._moeez_._/",
     icon: "/icons/instagram.svg",
   },
   {
     label: "Twitter",
-    href: "https://x.com/moeez34",
+    href: "https://x.com/MoeezAhmed20312",
     icon: "/icons/twitter.svg",
   },
 ];

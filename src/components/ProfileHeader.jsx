@@ -21,7 +21,7 @@ export default function ProfileHeader() {
             </h1>
             <div className="flex items-center gap-3">
               <a
-                href="https://x.com/moeez34"
+                href="https://x.com/MoeezAhmed20312"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="X"
@@ -30,7 +30,7 @@ export default function ProfileHeader() {
                 <img src="/icons/twitter.svg" alt="" className="size-[18px]" />
               </a>
               <a
-                href="https://www.linkedin.com/in/moeez34"
+                href="https://www.linkedin.com/in/moeez-ahmed2504/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
