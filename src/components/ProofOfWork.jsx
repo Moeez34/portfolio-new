@@ -64,7 +64,7 @@ function ProjectCard({ project, index }) {
 export default function ProofOfWork() {
   return (
     <section id="about" className="w-full">
-      <div className="px-4 pb-10 pt-14 sm:px-8 sm:pt-16 lg:px-12">
+      <div className="px-4 pb-8 pt-10 sm:px-8 sm:pt-12 lg:px-12">
         <div className="flex items-end justify-between gap-4">
           <div>
             <p className="flex flex-wrap items-baseline gap-x-[0.9em] font-mono text-xs font-semibold uppercase tracking-[0.1em] text-ink-kicker sm:text-sm">
@@ -73,7 +73,7 @@ export default function ProofOfWork() {
               <span>01</span>
             </p>
 
-            <h2 className="mt-[0.28em] font-display text-[clamp(2rem,6vw,4.5rem)] font-bold leading-[0.95] tracking-[-0.01em] text-ink-title">
+            <h2 className="mt-[0.28em] font-display text-[clamp(1.75rem,4.5vw,3rem)] font-bold leading-[0.95] tracking-[-0.01em] text-ink-title">
               Proof of work
             </h2>
           </div>
