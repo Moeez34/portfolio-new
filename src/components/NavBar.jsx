@@ -11,7 +11,7 @@ export default function NavBar() {
         <img
           src="/icons/home.png"
           alt=""
-          className="size-6 brightness-0 invert opacity-90 transition-opacity group-hover:opacity-100 sm:size-7"
+          className="size-5 brightness-0 invert opacity-90 transition-opacity group-hover:opacity-100"
           draggable="false"
         />
       ),
@@ -19,12 +19,12 @@ export default function NavBar() {
     {
       label: "About",
       href: "#about",
-      icon: <UserRound className="size-6 text-[#d6d6d6] transition-colors group-hover:text-white sm:size-7" strokeWidth={1.8} />,
+      icon: <UserRound className="size-5 text-[#d6d6d6] transition-colors group-hover:text-white" strokeWidth={1.8} />,
     },
     {
       label: "Resume",
       href: "/Syed_Moeez_Ahmed_Resume.pdf",
-      icon: <FileText className="size-6 text-[#d6d6d6] transition-colors group-hover:text-white sm:size-7" strokeWidth={1.8} />,
+      icon: <FileText className="size-5 text-[#d6d6d6] transition-colors group-hover:text-white" strokeWidth={1.8} />,
       external: true,
     },
     {
@@ -34,7 +34,7 @@ export default function NavBar() {
         <img
           src="/icons/contact.png"
           alt=""
-          className="size-6 brightness-0 invert opacity-90 transition-opacity group-hover:opacity-100 sm:size-7"
+          className="size-5 brightness-0 invert opacity-90 transition-opacity group-hover:opacity-100"
           draggable="false"
         />
       ),
@@ -45,7 +45,7 @@ export default function NavBar() {
       icon: (
         <HugeiconsIcon
           icon={BloggerIcon}
-          size={28}
+          size={20}
           color="#d6d6d6"
           strokeWidth={1.8}
           className="transition-colors group-hover:[&_svg]:text-white"
@@ -56,8 +56,8 @@ export default function NavBar() {
 
   return (
     <nav className="w-full bg-black">
-      <div className="flex w-full justify-center px-6 py-8 sm:py-10">
-        <div className="w-full max-w-[520px] rounded-full border border-[#2a2a2a] bg-[#0b0b0b] px-6 py-4 sm:px-10 sm:py-5">
+      <div className="flex w-full justify-center px-6 py-6 sm:py-8">
+        <div className="w-full max-w-[360px] rounded-full border border-[#2a2a2a] bg-[#0b0b0b] px-5 py-2.5 sm:px-6 sm:py-3">
           <ul className="flex items-center justify-between">
             {items.map((item) => (
               <li key={item.label}>
