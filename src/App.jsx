@@ -10,7 +10,7 @@ export default function App() {
       <main className="min-h-dvh w-full">
         <ProfileHeader />
         <ProofOfWork />
-        <section className="px-4 pb-20 sm:px-8 lg:px-12">
+        <section className="flex justify-center px-4 pb-20 sm:px-8 lg:px-12">
           <GitHubActivity username="Moeez34" showMonths />
         </section>
       </main>
