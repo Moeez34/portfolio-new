@@ -56,9 +56,9 @@ export default function NavBar() {
 
   return (
     <nav className="w-full bg-black">
-      <div className="flex w-full justify-center px-6 py-10 sm:py-12">
-        <div className="w-full max-w-[420px]">
-          <ul className="flex items-center justify-between px-4 py-4 sm:px-6">
+      <div className="flex w-full justify-center px-6 py-8 sm:py-10">
+        <div className="w-full max-w-[520px] rounded-full border border-[#2a2a2a] bg-[#0b0b0b] px-6 py-4 sm:px-10 sm:py-5">
+          <ul className="flex items-center justify-between">
             {items.map((item) => (
               <li key={item.label}>
                 <a
