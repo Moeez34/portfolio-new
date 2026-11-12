@@ -17,7 +17,6 @@ export default function NavBar() {
               <RainbowButton
                 as="a"
                 href={link.href}
-                className="h-10 px-5 text-[15px] sm:h-11 sm:px-7 sm:text-base"
                 {...(link.href.endsWith(".pdf")
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
