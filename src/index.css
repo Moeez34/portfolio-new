@@ -50,12 +50,65 @@
 html {
   scroll-behavior: smooth;
   background-color: var(--color-ink);
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+  --color-ink: #ffffff;
+  --color-ink-text: #0f1419;
+  --color-ink-muted: #536471;
+  --color-ink-border: #d7dde1;
+  --color-ink-blue: #1d9bf0;
+  --color-ink-title: #0f1419;
+  --color-ink-kicker: #536471;
 }
 
 body {
   background-color: var(--color-ink);
   color: var(--color-ink-text);
 }
+
+/* light theme overrides for hardcoded dark surfaces */
+html.light .bg-black { background-color: #ffffff !important; }
+html.light .bg-ink { background-color: #ffffff !important; }
+html.light .bg-\[\#0b0b0b\],
+html.light .bg-\[\#050505\],
+html.light .bg-\[\#0d0d0d\],
+html.light .bg-\[\#05060a\],
+html.light .bg-\[\#141414\],
+html.light .bg-\[\#1f1f1f\] { background-color: #f7f9f9 !important; }
+html.light .border-\[\#2a2a2a\],
+html.light .border-\[\#202020\],
+html.light .border-\[\#3a3a3a\],
+html.light .border-ink-border { border-color: #d7dde1 !important; }
+html.light .text-\[\#d6d6d6\],
+html.light .text-\[\#d3d3d3\],
+html.light .text-\[\#94a3b8\],
+html.light .text-\[\#71767b\],
+html.light .text-\[\#6b6b6b\],
+html.light .text-\[\#a1a7b3\],
+html.light .text-ink-kicker,
+html.light .text-ink-muted { color: #536471 !important; }
+html.light .text-ink-text,
+html.light .text-ink-title,
+html.light .text-neutral-100 { color: #0f1419 !important; }
+html.light .text-neutral-400 { color: #536471 !important; }
+html.light .bg-neutral-600 { background-color: #536471 !important; }
+html.light .border-white\/10 { border-color: rgba(15,20,25,0.1) !important; }
+html.light .bg-white\/\[0\.02\] { background-color: rgba(15,20,25,0.02) !important; }
+html.light .text-white\/10 { color: rgba(15,20,25,0.08) !important; }
+html.light .hover\:text-white:hover { color: #0f1419 !important; }
+html.light .hover\:bg-\[\#171717\]:hover,
+html.light .hover\:bg-\[\#141414\]:hover { background-color: #eef3f4 !important; }
+html.light [data-slot="github-activity"] { background-color: #f7f9f9 !important; }
+html.light [data-slot="github-activity-panel"] { background-color: #ffffff !important; }
+html.light footer { background-color: #ffffff; }
+html.light nav img.brightness-0.invert { filter: brightness(0) opacity(0.7); }
+html.light nav img.brightness-0.invert:hover { filter: brightness(0) opacity(1); }
+html.light nav .group:hover img.brightness-0.invert { filter: brightness(0) opacity(1); }
+html.light nav svg { color: #536471; }
+html.light nav .group:hover svg { color: #0f1419; }
 
 ::selection {
   background: rgba(29, 155, 240, 0.35);
