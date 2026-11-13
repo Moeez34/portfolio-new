@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Moeez Ahmed — AI Product &amp; Full Stack Engineer</title>
     <meta
@@ -25,7 +26,16 @@
       (function () {
         try {
           var t = localStorage.getItem("theme");
-          if (t === "light") document.documentElement.classList.add("light");
+          if (!t) {
+            t = window.matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+          }
+          if (t === "light") {
+            document.documentElement.classList.add("light");
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute("content", "#ffffff");
+          }
         } catch (e) {}
       })();
     </script>

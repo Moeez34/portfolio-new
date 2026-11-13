@@ -8,16 +8,37 @@ export default function NavBar() {
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
-    const initial = saved === "light" ? "light" : "dark";
+    const initial = saved
+      ? saved === "light"
+        ? "light"
+        : "dark"
+      : window.matchMedia("(prefers-color-scheme: light)").matches
+        ? "light"
+        : "dark";
     setTheme(initial);
     document.documentElement.classList.toggle("light", initial === "light");
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", initial === "light" ? "#ffffff" : "#000000");
   }, []);
 
   const toggleTheme = () => {
     const next = theme === "light" ? "dark" : "light";
+    const root = document.documentElement;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    if (!reduceMotion) {
+      root.classList.add("theme-anim");
+      window.setTimeout(() => root.classList.remove("theme-anim"), 450);
+    }
+
     setTheme(next);
-    document.documentElement.classList.toggle("light", next === "light");
+    root.classList.toggle("light", next === "light");
     localStorage.setItem("theme", next);
+
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", next === "light" ? "#ffffff" : "#000000");
   };
   const items = [
     {
@@ -96,6 +117,7 @@ export default function NavBar() {
                 type="button"
                 onClick={toggleTheme}
                 aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
+                aria-pressed={theme === "light"}
                 title={theme === "light" ? "Dark mode" : "Light mode"}
                 className="group inline-flex items-center justify-center text-[#d6d6d6] transition-colors hover:text-white"
               >
