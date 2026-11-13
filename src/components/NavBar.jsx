@@ -58,7 +58,7 @@ export default function NavBar() {
     },
     {
       label: "Blogs",
-      href: "/#blogs",
+      href: "/blogs",
       icon: (
         <HugeiconsIcon
           icon={BloggerIcon}
