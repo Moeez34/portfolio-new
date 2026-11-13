@@ -58,12 +58,9 @@ export default function Footer() {
   return (
     <footer className="w-full">
       <div className="h-px w-full bg-gradient-to-r from-transparent via-ink-border to-transparent" />
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-9 px-4 pb-10 pt-12 sm:px-8">
-        <div className="flex flex-col items-center text-center">
-          <p className="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-ink-kicker">
-            Contact
-          </p>
-          <h2 className="mt-3 font-display text-xl font-bold tracking-[-0.02em] text-ink-title sm:text-2xl">
+      <div className="mx-auto flex max-w-5xl flex-col gap-8 px-4 pb-10 pt-12 sm:px-8 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col items-start text-left">
+          <h2 className="font-display text-xl font-bold tracking-[-0.02em] text-ink-title sm:text-2xl">
             Let&rsquo;s build something
           </h2>
           <p className="mt-2 max-w-md text-sm leading-6 text-ink-muted">
@@ -71,7 +68,7 @@ export default function Footer() {
             open.
           </p>
 
-          <div className="mt-5 flex flex-col items-center gap-3 sm:flex-row">
+          <div className="mt-5 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
             <a
               href={`mailto:${profile.email}`}
               className="text-sm font-medium text-ink-text underline-offset-4 transition-colors hover:text-ink-muted hover:underline"
@@ -98,33 +95,35 @@ export default function Footer() {
           </span>
         </div>
 
-        <ul className="flex items-center gap-5 sm:gap-6">
-          {socials.map((social) => (
-            <li key={social.label}>
-              <a
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                className="inline-flex items-center justify-center opacity-70 transition-opacity hover:opacity-100"
-              >
-                <img
-                  src={social.icon}
-                  alt=""
-                  width={20}
-                  height={20}
-                  className={`size-5 ${social.invertOnLight ? "theme-social-icon" : ""}`}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="flex flex-col items-start gap-4 md:items-end">
+          <ul className="flex items-center gap-5 sm:gap-6">
+            {socials.map((social) => (
+              <li key={social.label}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="inline-flex items-center justify-center opacity-70 transition-opacity hover:opacity-100"
+                >
+                  <img
+                    src={social.icon}
+                    alt=""
+                    width={20}
+                    height={20}
+                    className={`size-5 ${social.invertOnLight ? "theme-social-icon" : ""}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        <p className="text-center text-sm text-ink-muted">
-          © {new Date().getFullYear()} Moeez Ahmed. All rights reserved.
-        </p>
+          <p className="text-center text-sm text-ink-muted md:text-right">
+            © {new Date().getFullYear()} Moeez Ahmed. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );
