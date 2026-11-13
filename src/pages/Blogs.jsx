@@ -1,7 +1,50 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
+import { blogs } from "../data/blogs";
+
+function BlogCard({ blog }) {
+  return (
+    <article className="group">
+      <a
+        href={blog.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex flex-col overflow-hidden rounded-2xl border border-ink-border/80 bg-[#0b0b0b] transition-colors duration-300 hover:border-[#4a4f54] sm:flex-row"
+      >
+        <div className="relative aspect-[4/5] w-full shrink-0 overflow-hidden bg-[#050505] sm:aspect-auto sm:w-[38%] sm:min-h-[300px]">
+          <img
+            src={blog.image}
+            alt={`${blog.title} cover`}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+          />
+        </div>
+
+        <div className="flex min-w-0 flex-1 flex-col justify-between gap-6 p-6 sm:p-8">
+          <div>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-ink-kicker">
+              {blog.source}
+            </p>
+            <h2 className="mt-3 font-display text-2xl font-bold leading-tight tracking-[-0.02em] text-ink-title sm:text-[2rem]">
+              {blog.title}
+            </h2>
+            <p className="mt-3 max-w-xl text-[15px] leading-6 text-ink-muted sm:text-base">
+              {blog.description}
+            </p>
+          </div>
+
+          <span className="inline-flex items-center gap-2 text-sm font-medium text-ink-text">
+            <span>Read article</span>
+            <ArrowUpRight size={16} strokeWidth={1.8} />
+          </span>
+        </div>
+      </a>
+    </article>
+  );
+}
 
 export default function Blogs() {
   return (
@@ -26,6 +69,12 @@ export default function Blogs() {
             <h1 className="mt-[0.28em] font-display text-[clamp(1.75rem,4.5vw,3rem)] font-bold leading-[0.95] tracking-[-0.01em] text-ink-title">
               Blogs
             </h1>
+
+            <div className="mt-10 flex flex-col gap-8">
+              {blogs.map((blog) => (
+                <BlogCard key={blog.title} blog={blog} />
+              ))}
+            </div>
           </div>
         </section>
       </main>
