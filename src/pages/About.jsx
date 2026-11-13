@@ -23,11 +23,8 @@ export default function About() {
               <span aria-hidden="true">-</span>
               <span>About</span>
             </p>
-            <h1 className="mt-[0.28em] font-display text-[clamp(1.75rem,4.5vw,3rem)] font-bold leading-[0.95] tracking-[-0.01em] text-ink-title">
-              About me
-            </h1>
 
-            <div className="mt-10 space-y-6">
+            <div className="mt-8 space-y-6">
               <p className="font-gitlab text-2xl font-bold leading-snug tracking-tight text-ink-title sm:text-3xl">
                 Hey, Moeez Ahmed this side an AI product &amp; full stack
                 engineer.
