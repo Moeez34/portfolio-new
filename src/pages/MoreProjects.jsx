@@ -1,9 +1,8 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
-import { moreProjects } from "../data/projects";
-import { ArrowUpRight } from "lucide-react";
+import { moreProjects, projects } from "../data/projects";
 
 function ProjectCard({ project }) {
   return (
@@ -69,6 +68,8 @@ function ProjectCard({ project }) {
   );
 }
 
+const allProjects = [...projects, ...moreProjects];
+
 export default function MoreProjects() {
   return (
     <div className="min-h-dvh bg-ink font-sans text-ink-text antialiased">
@@ -93,7 +94,7 @@ export default function MoreProjects() {
           </h1>
 
           <div className="mt-10 flex flex-col gap-14 sm:gap-16">
-            {moreProjects.map((project) => (
+            {allProjects.map((project) => (
               <ProjectCard key={project.title} project={project} />
             ))}
           </div>
