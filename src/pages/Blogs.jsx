@@ -30,7 +30,7 @@ function BlogCard({ blog }) {
           <h2 className="mt-1 font-display text-base font-bold leading-snug tracking-[-0.01em] text-ink-title sm:text-lg">
             {blog.title}
           </h2>
-          <p className="mt-1 hidden text-sm leading-5 text-ink-muted sm:line-clamp-2 sm:block">
+          <p className="mt-1 line-clamp-2 text-sm leading-5 text-ink-muted">
             {blog.description}
           </p>
         </div>
