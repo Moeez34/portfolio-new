@@ -1,6 +1,54 @@
 import { Check, Copy } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { profile } from "../data/profile";
+
+const BURST_DIRECTIONS = [
+  { x: 0, y: -34 },
+  { x: 24, y: -24 },
+  { x: 34, y: 0 },
+  { x: 24, y: 24 },
+  { x: 0, y: 34 },
+  { x: -24, y: 24 },
+  { x: -34, y: 0 },
+  { x: -24, y: -24 },
+];
+
+function CopyBurst() {
+  return (
+    <span
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 grid place-items-center"
+    >
+      <motion.span
+        className="absolute inset-0 rounded-full border border-ink-blue"
+        initial={{ opacity: 0.45, scale: 0.7 }}
+        animate={{ opacity: 0, scale: 1.35 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      />
+      {BURST_DIRECTIONS.map((direction, index) => (
+        <motion.span
+          key={index}
+          className={`absolute size-1 rounded-full ${
+            index % 2 === 0 ? "bg-ink-blue" : "bg-ink-text"
+          }`}
+          initial={{ opacity: 0, x: 0, y: 0, scale: 0.4 }}
+          animate={{
+            opacity: [0, 1, 0],
+            x: direction.x,
+            y: direction.y,
+            scale: [0.4, 1, 0.3],
+          }}
+          transition={{
+            duration: 0.55,
+            ease: [0.22, 1, 0.36, 1],
+            delay: index * 0.012,
+          }}
+        />
+      ))}
+    </span>
+  );
+}
 
 const socials = [
   {
@@ -29,7 +77,9 @@ const socials = [
 
 export default function Footer() {
   const [copied, setCopied] = useState(false);
+  const [burst, setBurst] = useState(0);
   const timer = useRef(null);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => () => window.clearTimeout(timer.current), []);
 
@@ -51,6 +101,7 @@ export default function Footer() {
     }
 
     setCopied(true);
+    setBurst((value) => value + 1);
     window.clearTimeout(timer.current);
     timer.current = window.setTimeout(() => setCopied(false), 2000);
   };
@@ -76,18 +127,35 @@ export default function Footer() {
               {profile.email}
             </a>
 
-            <button
+            <motion.button
               type="button"
               onClick={copyEmail}
-              className="inline-flex items-center gap-2 rounded-full border border-line-strong bg-surface-raised px-4 py-2 text-sm font-medium text-ink-text transition-colors hover:border-line-hover hover:bg-surface-hover"
+              whileTap={reduceMotion ? undefined : { scale: 0.96 }}
+              animate={
+                !reduceMotion && copied ? { scale: [1, 1.06, 1] } : { scale: 1 }
+              }
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="relative inline-flex items-center gap-2 rounded-full border border-line-strong bg-surface-raised px-4 py-2 text-sm font-medium text-ink-text transition-colors hover:border-line-hover hover:bg-surface-hover"
             >
-              {copied ? (
-                <Check size={15} strokeWidth={2} aria-hidden="true" />
-              ) : (
-                <Copy size={15} strokeWidth={1.8} aria-hidden="true" />
-              )}
+              <AnimatePresence initial={false} mode="wait">
+                <motion.span
+                  key={copied ? "check" : "copy"}
+                  className="inline-flex"
+                  initial={{ scale: 0.4, opacity: 0, rotate: copied ? -25 : 25 }}
+                  animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                  exit={{ scale: 0.4, opacity: 0 }}
+                  transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  {copied ? (
+                    <Check size={15} strokeWidth={2} aria-hidden="true" />
+                  ) : (
+                    <Copy size={15} strokeWidth={1.8} aria-hidden="true" />
+                  )}
+                </motion.span>
+              </AnimatePresence>
               <span>{copied ? "Copied!" : "Copy email"}</span>
-            </button>
+              {!reduceMotion && copied && <CopyBurst key={burst} />}
+            </motion.button>
           </div>
 
           <span aria-live="polite" className="sr-only">
