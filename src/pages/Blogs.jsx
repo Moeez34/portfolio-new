@@ -13,13 +13,13 @@ function BlogCard({ blog }) {
         rel="noopener noreferrer"
         className="flex flex-col overflow-hidden rounded-2xl border border-ink-border/80 bg-[#0b0b0b] transition-colors duration-300 hover:border-[#4a4f54] sm:flex-row"
       >
-        <div className="relative aspect-[4/5] w-full shrink-0 overflow-hidden bg-[#050505] sm:aspect-auto sm:w-[38%] sm:min-h-[300px]">
+        <div className="relative flex w-full shrink-0 items-center justify-center overflow-hidden bg-[#050505] p-3 sm:w-[42%] sm:min-h-[380px]">
           <img
             src={blog.image}
             alt={`${blog.title} cover`}
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+            className="h-auto max-h-[440px] w-auto max-w-full rounded-lg object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
           />
         </div>
 
