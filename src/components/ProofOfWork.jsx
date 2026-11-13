@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
-import { useState } from "react";
-import { moreProjects, projects } from "../data/projects";
+import { Link } from "react-router-dom";
+import { projects } from "../data/projects";
 
 function ProjectCard({ project, index }) {
   return (
@@ -22,14 +22,9 @@ function ProjectCard({ project, index }) {
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#141414] via-[#0b0b0b] to-[#1b1b1b] p-8">
-              <div className="text-center">
-                <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink-kicker">
-                  GitHub Project
-                </p>
-                <p className="mt-3 font-display text-2xl font-bold tracking-[-0.02em] text-ink-title sm:text-3xl">
-                  {project.title}
-                </p>
-              </div>
+              <p className="font-display text-2xl font-bold text-ink-title">
+                {project.title}
+              </p>
             </div>
           )}
           <div
@@ -76,8 +71,6 @@ function ProjectCard({ project, index }) {
 }
 
 export default function ProofOfWork() {
-  const [showMore, setShowMore] = useState(false);
-
   return (
     <section id="about" className="w-full">
       <div className="px-4 pb-8 pt-10 sm:px-8 sm:pt-12 lg:px-12">
@@ -94,16 +87,13 @@ export default function ProofOfWork() {
             </h2>
           </div>
 
-          <button
-            type="button"
-            onClick={() => setShowMore((v) => !v)}
+          <Link
+            to="/projects"
             className="mb-1 inline-flex shrink-0 items-center gap-2 rounded-full border border-[#2a2a2a] bg-[#f2f2ee] px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-white sm:mb-2 sm:px-5 sm:py-2.5"
           >
-            <span>{showMore ? "Show less" : "View more projects"}</span>
-            <span aria-hidden="true" className="text-base leading-none">
-              {showMore ? "−" : "+"}
-            </span>
-          </button>
+            <span>View more projects</span>
+            <span aria-hidden="true" className="text-base leading-none">+</span>
+          </Link>
         </div>
       </div>
 
@@ -111,14 +101,6 @@ export default function ProofOfWork() {
         {projects.map((project, index) => (
           <ProjectCard key={project.title} project={project} index={index} />
         ))}
-        {showMore &&
-          moreProjects.map((project, index) => (
-            <ProjectCard
-              key={project.title}
-              project={project}
-              index={projects.length + index}
-            />
-          ))}
       </div>
     </section>
   );

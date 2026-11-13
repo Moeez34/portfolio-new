@@ -22,6 +22,7 @@ export const moreProjects = [
     title: "BeeCX — Consciousness Simulation",
     description:
       "An interactive browser prototype of a bee-inspired autonomous agent foraging in a voxel biome — with visual sensing, heading, and home-vector memory (path integration).",
+    image: "/projects/consciousness-simulation.png",
     href: "https://github.com/Moeez34/consiousness-simulation",
     tags: ["Simulation", "JavaScript", "Research"],
   },
