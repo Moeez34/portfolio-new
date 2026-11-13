@@ -48,8 +48,8 @@ export default function Home() {
             </span>
 
             <blockquote className="relative text-pretty font-quote text-2xl italic leading-snug tracking-tight text-ink-title sm:text-3xl">
-              Moeez is a great software engineer. I tried to hire them, but they
-              said my codebase needed a rewrite.
+              Moeez is a great engineer. I tried to hire him, but he said my
+              codebase needed a rewrite.
             </blockquote>
 
             <figcaption className="mt-6 flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-ink-muted">
