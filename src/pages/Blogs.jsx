@@ -11,36 +11,35 @@ function BlogCard({ blog }) {
         href={blog.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-col overflow-hidden rounded-2xl border border-ink-border/80 bg-[#0b0b0b] transition-colors duration-300 hover:border-[#4a4f54] sm:flex-row"
+        className="flex items-center gap-4 rounded-xl border border-ink-border/80 bg-[#0b0b0b] p-3 transition-colors duration-300 hover:border-[#4a4f54] sm:gap-5 sm:p-4"
       >
-        <div className="relative flex w-full shrink-0 items-center justify-center overflow-hidden bg-[#050505] p-3 sm:w-[42%] sm:min-h-[380px]">
+        <div className="relative size-24 shrink-0 overflow-hidden rounded-lg bg-[#050505] sm:size-28">
           <img
             src={blog.image}
             alt={`${blog.title} cover`}
             loading="lazy"
             decoding="async"
-            className="h-auto max-h-[440px] w-auto max-w-full rounded-lg object-contain transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+            className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
           />
         </div>
 
-        <div className="flex min-w-0 flex-1 flex-col justify-between gap-6 p-6 sm:p-8">
-          <div>
-            <p className="font-mono text-xs font-semibold uppercase tracking-[0.1em] text-ink-kicker">
-              {blog.source}
-            </p>
-            <h2 className="mt-3 font-display text-2xl font-bold leading-tight tracking-[-0.02em] text-ink-title sm:text-[2rem]">
-              {blog.title}
-            </h2>
-            <p className="mt-3 max-w-xl text-[15px] leading-6 text-ink-muted sm:text-base">
-              {blog.description}
-            </p>
-          </div>
-
-          <span className="inline-flex items-center gap-2 text-sm font-medium text-ink-text">
-            <span>Read article</span>
-            <ArrowUpRight size={16} strokeWidth={1.8} />
-          </span>
+        <div className="min-w-0 flex-1">
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-ink-kicker">
+            {blog.source}
+          </p>
+          <h2 className="mt-1 font-display text-base font-bold leading-snug tracking-[-0.01em] text-ink-title sm:text-lg">
+            {blog.title}
+          </h2>
+          <p className="mt-1 hidden text-sm leading-5 text-ink-muted sm:line-clamp-2 sm:block">
+            {blog.description}
+          </p>
         </div>
+
+        <ArrowUpRight
+          size={16}
+          strokeWidth={1.8}
+          className="shrink-0 text-ink-muted transition-colors group-hover:text-ink-text"
+        />
       </a>
     </article>
   );
