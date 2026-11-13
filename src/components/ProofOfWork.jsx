@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
-import { projects } from "../data/projects";
+import { useState } from "react";
+import { moreProjects, projects } from "../data/projects";
 
 function ProjectCard({ project, index }) {
   return (
@@ -11,13 +12,26 @@ function ProjectCard({ project, index }) {
         className="block overflow-hidden rounded-2xl border border-ink-border/80 bg-[#0b0b0b] transition-colors duration-300 hover:border-[#4a4f54]"
       >
         <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#050505]">
-          <img
-            src={project.image}
-            alt={`${project.title} screenshot`}
-            loading={index === 0 ? "eager" : "lazy"}
-            decoding="async"
-            className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-          />
+          {project.image ? (
+            <img
+              src={project.image}
+              alt={`${project.title} screenshot`}
+              loading={index === 0 ? "eager" : "lazy"}
+              decoding="async"
+              className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#141414] via-[#0b0b0b] to-[#1b1b1b] p-8">
+              <div className="text-center">
+                <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink-kicker">
+                  GitHub Project
+                </p>
+                <p className="mt-3 font-display text-2xl font-bold tracking-[-0.02em] text-ink-title sm:text-3xl">
+                  {project.title}
+                </p>
+              </div>
+            </div>
+          )}
           <div
             className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
             aria-hidden="true"
@@ -62,6 +76,8 @@ function ProjectCard({ project, index }) {
 }
 
 export default function ProofOfWork() {
+  const [showMore, setShowMore] = useState(false);
+
   return (
     <section id="about" className="w-full">
       <div className="px-4 pb-8 pt-10 sm:px-8 sm:pt-12 lg:px-12">
@@ -78,15 +94,16 @@ export default function ProofOfWork() {
             </h2>
           </div>
 
-          <a
-            href="https://github.com/Moeez34"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => setShowMore((v) => !v)}
             className="mb-1 inline-flex shrink-0 items-center gap-2 rounded-full border border-[#2a2a2a] bg-[#f2f2ee] px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-white sm:mb-2 sm:px-5 sm:py-2.5"
           >
-            <span>View all work</span>
-            <span aria-hidden="true" className="text-base leading-none">+</span>
-          </a>
+            <span>{showMore ? "Show less" : "View more projects"}</span>
+            <span aria-hidden="true" className="text-base leading-none">
+              {showMore ? "−" : "+"}
+            </span>
+          </button>
         </div>
       </div>
 
@@ -94,6 +111,14 @@ export default function ProofOfWork() {
         {projects.map((project, index) => (
           <ProjectCard key={project.title} project={project} index={index} />
         ))}
+        {showMore &&
+          moreProjects.map((project, index) => (
+            <ProjectCard
+              key={project.title}
+              project={project}
+              index={projects.length + index}
+            />
+          ))}
       </div>
     </section>
   );
