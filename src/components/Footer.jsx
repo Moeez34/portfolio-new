@@ -191,6 +191,14 @@ export default function Footer() {
           <p className="text-center text-sm text-ink-muted md:text-right">
             © {new Date().getFullYear()} Moeez Ahmed. All rights reserved.
           </p>
+
+          <span className="work-badge inline-flex items-center gap-2 rounded-full border px-2.5 py-1 text-[11px] font-medium">
+            <span className="relative flex size-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 motion-reduce:animate-none" />
+              <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />
+            </span>
+            Open for work
+          </span>
         </div>
       </div>
     </footer>
