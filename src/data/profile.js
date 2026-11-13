@@ -4,6 +4,7 @@ export const profile = {
   bio: "AI Product & Full Stack Engineer",
   location: "Kolkata, West Bengal",
   joined: "Joined 2023",
+  email: "ahmedmoeez7860@gmail.com",
 };
 
 export const stack = [
