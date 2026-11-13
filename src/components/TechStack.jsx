@@ -2,12 +2,12 @@ import { stack } from "../data/profile";
 
 export default function TechStack() {
   return (
-    <div className="mt-5 flex flex-col items-start gap-4">
+    <div className="mt-6 flex flex-col items-start gap-4">
       <p className="font-mono text-xs font-semibold uppercase leading-none tracking-[0.1em] text-ink-kicker sm:text-sm">
-        Technologies & tools
+        Technologies &amp; tools
       </p>
 
-      <ul className="flex flex-wrap items-center gap-[13px]">
+      <ul className="flex flex-wrap items-center gap-2.5">
         {stack.map((tech) => (
           <li
             key={tech.name}

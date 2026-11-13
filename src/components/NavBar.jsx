@@ -2,6 +2,65 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { BloggerIcon } from "@hugeicons/core-free-icons";
 import { FileText, Moon, Sun, UserRound } from "lucide-react";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+
+const itemClass =
+  "group inline-flex size-9 items-center justify-center rounded-full text-icon transition-colors duration-200 hover:bg-ink-text/[0.06] hover:text-icon-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus focus-visible:ring-offset-2 focus-visible:ring-offset-surface-raised";
+
+const activeClass = "bg-ink-text/[0.08] text-ink-text";
+
+function Glyph({ src, isActive }) {
+  return (
+    <img
+      src={src}
+      alt=""
+      draggable="false"
+      className={`theme-glyph size-5 transition-opacity duration-200 ${
+        isActive ? "opacity-100" : "opacity-60 group-hover:opacity-100"
+      }`}
+    />
+  );
+}
+
+const navItems = [
+  {
+    label: "Home",
+    to: "/",
+    end: true,
+    icon: (isActive) => <Glyph src="/icons/home.png" isActive={isActive} />,
+  },
+  {
+    label: "About",
+    to: "/about",
+    icon: () => <UserRound className="size-5" strokeWidth={1.8} />,
+  },
+  {
+    label: "Resume",
+    href: "/Syed_Moeez_Ahmed_Resume.pdf",
+    external: true,
+    icon: () => <FileText className="size-5" strokeWidth={1.8} />,
+  },
+  {
+    label: "Research",
+    href: "/Research-Paper-4.pdf",
+    external: true,
+    icon: (isActive) => (
+      <Glyph src="/icons/research.png" isActive={isActive} />
+    ),
+  },
+  {
+    label: "Blogs",
+    to: "/blogs",
+    icon: () => (
+      <HugeiconsIcon
+        icon={BloggerIcon}
+        size={20}
+        color="currentColor"
+        strokeWidth={1.8}
+      />
+    ),
+  },
+];
 
 export default function NavBar() {
   const [theme, setTheme] = useState("dark");
@@ -18,7 +77,8 @@ export default function NavBar() {
     setTheme(initial);
     document.documentElement.classList.toggle("light", initial === "light");
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", initial === "light" ? "#ffffff" : "#000000");
+    if (meta)
+      meta.setAttribute("content", initial === "light" ? "#ffffff" : "#000000");
   }, []);
 
   const toggleTheme = () => {
@@ -38,100 +98,58 @@ export default function NavBar() {
     localStorage.setItem("theme", next);
 
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", next === "light" ? "#ffffff" : "#000000");
+    if (meta)
+      meta.setAttribute("content", next === "light" ? "#ffffff" : "#000000");
   };
 
-  const items = [
-    {
-      label: "Home",
-      href: "/",
-      icon: (
-        <img
-          src="/icons/home.png"
-          alt=""
-          className="theme-glyph size-5 opacity-90 transition-opacity group-hover:opacity-100"
-          draggable="false"
-        />
-      ),
-    },
-    {
-      label: "About",
-      href: "/about",
-      icon: (
-        <UserRound
-          className="size-5 text-icon transition-colors group-hover:text-icon-hover"
-          strokeWidth={1.8}
-        />
-      ),
-    },
-    {
-      label: "Resume",
-      href: "/Syed_Moeez_Ahmed_Resume.pdf",
-      icon: (
-        <FileText
-          className="size-5 text-icon transition-colors group-hover:text-icon-hover"
-          strokeWidth={1.8}
-        />
-      ),
-      external: true,
-    },
-    {
-      label: "Research",
-      href: "/Research-Paper-4.pdf",
-      icon: (
-        <img
-          src="/icons/research.png"
-          alt=""
-          className="theme-glyph size-5 opacity-90 transition-opacity group-hover:opacity-100"
-          draggable="false"
-        />
-      ),
-      external: true,
-    },
-    {
-      label: "Blogs",
-      href: "/blogs",
-      icon: (
-        <span className="inline-flex text-icon transition-colors group-hover:text-icon-hover">
-          <HugeiconsIcon
-            icon={BloggerIcon}
-            size={20}
-            color="currentColor"
-            strokeWidth={1.8}
-          />
-        </span>
-      ),
-    },
-  ];
-
   return (
-    <nav className="w-full bg-ink">
-      <div className="flex w-full justify-center px-6 py-6 sm:py-8">
-        <div className="w-full max-w-[420px] rounded-full border border-line-strong bg-surface-raised px-5 py-2.5 sm:px-6 sm:py-3">
-          <ul className="flex items-center justify-between">
-            {items.map((item) => (
-              <li key={item.label}>
-                <a
-                  href={item.href}
-                  aria-label={item.label}
-                  title={item.label}
-                  className="group inline-flex items-center justify-center text-icon transition-colors hover:text-icon-hover"
-                  {...(item.external
-                    ? { target: "_blank", rel: "noopener noreferrer" }
-                    : {})}
-                >
-                  {item.icon}
-                </a>
-              </li>
-            ))}
+    <nav aria-label="Primary" className="w-full bg-ink">
+      <div className="flex w-full justify-center px-4 py-6 sm:py-8">
+        <div className="w-full max-w-[420px] rounded-full border border-line-strong bg-surface-raised px-3 py-2 sm:px-4 sm:py-2.5">
+          <ul className="flex items-center justify-between gap-1">
+            {navItems.map((item) =>
+              item.external ? (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={item.label}
+                    title={item.label}
+                    className={itemClass}
+                  >
+                    {item.icon(false)}
+                  </a>
+                </li>
+              ) : (
+                <li key={item.label}>
+                  <NavLink
+                    to={item.to}
+                    end={item.end}
+                    aria-label={item.label}
+                    title={item.label}
+                    className={({ isActive }) =>
+                      `${itemClass}${isActive ? ` ${activeClass}` : ""}`
+                    }
+                  >
+                    {({ isActive }) => item.icon(isActive)}
+                  </NavLink>
+                </li>
+              ),
+            )}
+
             <li>
               <button
                 type="button"
                 onClick={toggleTheme}
-                aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
+                aria-label={
+                  theme === "light"
+                    ? "Switch to dark theme"
+                    : "Switch to light theme"
+                }
                 aria-pressed={theme === "light"}
                 title={theme === "light" ? "Dark mode" : "Light mode"}
-                className="group inline-flex items-center justify-center text-icon transition-colors hover:text-icon-hover"
+                className={itemClass}
               >
                 {theme === "light" ? (
                   <Moon className="size-5" strokeWidth={1.8} />

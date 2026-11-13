@@ -23,11 +23,12 @@
 
   --color-ink: #000000;
   --color-ink-text: #e7e9ea;
-  --color-ink-muted: #71767b;
+  --color-ink-muted: #7d838a;
   --color-ink-border: #2f3336;
   --color-ink-blue: #1d9bf0;
   --color-ink-title: #f2f2ee;
   --color-ink-kicker: #a1a7b3;
+  --color-focus: #1d9bf0;
 
   --color-surface-raised: #0b0b0b;
   --color-surface-sunken: #050505;
@@ -73,6 +74,7 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
   background-color: var(--color-ink);
   color-scheme: dark;
 }
@@ -86,6 +88,7 @@ html.light {
   --color-ink-blue: #1d9bf0;
   --color-ink-title: #0f1419;
   --color-ink-kicker: #536471;
+  --color-focus: #0b74c4;
 
   --color-surface-raised: #f7f9f9;
   --color-surface-sunken: #eef3f4;
@@ -185,8 +188,24 @@ html.light ::selection {
   background: var(--color-line-hover);
 }
 
+/* visible keyboard focus everywhere; components may override with their own ring */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
