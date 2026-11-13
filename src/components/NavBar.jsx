@@ -40,6 +40,7 @@ export default function NavBar() {
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute("content", next === "light" ? "#ffffff" : "#000000");
   };
+
   const items = [
     {
       label: "Home",
@@ -48,7 +49,7 @@ export default function NavBar() {
         <img
           src="/icons/home.png"
           alt=""
-          className="size-5 brightness-0 invert opacity-90 transition-opacity group-hover:opacity-100"
+          className="theme-glyph size-5 opacity-90 transition-opacity group-hover:opacity-100"
           draggable="false"
         />
       ),
@@ -56,12 +57,22 @@ export default function NavBar() {
     {
       label: "About",
       href: "/about",
-      icon: <UserRound className="size-5 text-[#d6d6d6] transition-colors group-hover:text-white" strokeWidth={1.8} />,
+      icon: (
+        <UserRound
+          className="size-5 text-icon transition-colors group-hover:text-icon-hover"
+          strokeWidth={1.8}
+        />
+      ),
     },
     {
       label: "Resume",
       href: "/Syed_Moeez_Ahmed_Resume.pdf",
-      icon: <FileText className="size-5 text-[#d6d6d6] transition-colors group-hover:text-white" strokeWidth={1.8} />,
+      icon: (
+        <FileText
+          className="size-5 text-icon transition-colors group-hover:text-icon-hover"
+          strokeWidth={1.8}
+        />
+      ),
       external: true,
     },
     {
@@ -71,7 +82,7 @@ export default function NavBar() {
         <img
           src="/icons/research.png"
           alt=""
-          className="size-5 brightness-0 invert opacity-90 transition-opacity group-hover:opacity-100"
+          className="theme-glyph size-5 opacity-90 transition-opacity group-hover:opacity-100"
           draggable="false"
         />
       ),
@@ -81,21 +92,22 @@ export default function NavBar() {
       label: "Blogs",
       href: "/blogs",
       icon: (
-        <HugeiconsIcon
-          icon={BloggerIcon}
-          size={20}
-          color="#d6d6d6"
-          strokeWidth={1.8}
-          className="transition-colors group-hover:[&_svg]:text-white"
-        />
+        <span className="inline-flex text-icon transition-colors group-hover:text-icon-hover">
+          <HugeiconsIcon
+            icon={BloggerIcon}
+            size={20}
+            color="currentColor"
+            strokeWidth={1.8}
+          />
+        </span>
       ),
     },
   ];
 
   return (
-    <nav className="w-full bg-black">
+    <nav className="w-full bg-ink">
       <div className="flex w-full justify-center px-6 py-6 sm:py-8">
-        <div className="w-full max-w-[420px] rounded-full border border-[#2a2a2a] bg-[#0b0b0b] px-5 py-2.5 sm:px-6 sm:py-3">
+        <div className="w-full max-w-[420px] rounded-full border border-line-strong bg-surface-raised px-5 py-2.5 sm:px-6 sm:py-3">
           <ul className="flex items-center justify-between">
             {items.map((item) => (
               <li key={item.label}>
@@ -103,7 +115,7 @@ export default function NavBar() {
                   href={item.href}
                   aria-label={item.label}
                   title={item.label}
-                  className="group inline-flex items-center justify-center text-[#d6d6d6] transition-colors hover:text-white"
+                  className="group inline-flex items-center justify-center text-icon transition-colors hover:text-icon-hover"
                   {...(item.external
                     ? { target: "_blank", rel: "noopener noreferrer" }
                     : {})}
@@ -119,7 +131,7 @@ export default function NavBar() {
                 aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"}
                 aria-pressed={theme === "light"}
                 title={theme === "light" ? "Dark mode" : "Light mode"}
-                className="group inline-flex items-center justify-center text-[#d6d6d6] transition-colors hover:text-white"
+                className="group inline-flex items-center justify-center text-icon transition-colors hover:text-icon-hover"
               >
                 {theme === "light" ? (
                   <Moon className="size-5" strokeWidth={1.8} />

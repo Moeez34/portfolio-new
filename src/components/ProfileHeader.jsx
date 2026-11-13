@@ -27,7 +27,7 @@ export default function ProfileHeader() {
                 aria-label="X"
                 className="inline-flex opacity-80 transition-opacity hover:opacity-100"
               >
-                <img src="/icons/twitter.svg" alt="" className="size-[18px]" />
+                <img src="/icons/twitter.svg" alt="" className="theme-social-icon size-[18px]" />
               </a>
               <a
                 href="https://www.linkedin.com/in/moeez-ahmed2504/"
@@ -45,7 +45,7 @@ export default function ProfileHeader() {
                 aria-label="GitHub"
                 className="inline-flex opacity-80 transition-opacity hover:opacity-100"
               >
-                <img src="/icons/github.svg" alt="" className="size-[18px]" />
+                <img src="/icons/github.svg" alt="" className="theme-social-icon size-[18px]" />
               </a>
             </div>
           </div>

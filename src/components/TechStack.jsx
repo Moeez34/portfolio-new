@@ -3,7 +3,7 @@ import { stack } from "../data/profile";
 export default function TechStack() {
   return (
     <div className="mt-5 flex flex-col items-start gap-4">
-      <p className="font-mono text-xs font-semibold uppercase leading-none tracking-[0.1em] text-[#94a3b8] sm:text-sm">
+      <p className="font-mono text-xs font-semibold uppercase leading-none tracking-[0.1em] text-ink-kicker sm:text-sm">
         Technologies & tools
       </p>
 
@@ -12,7 +12,7 @@ export default function TechStack() {
           <li
             key={tech.name}
             title={tech.name}
-            className="grid size-10 place-items-center rounded-[10px] border border-[#202020] bg-[#0d0d0d] transition-colors duration-200 hover:border-[#3a3a3a] hover:bg-[#141414]"
+            className="grid size-10 place-items-center rounded-[10px] border border-line bg-surface-soft transition-colors duration-200 hover:border-line-hover hover:bg-surface-hover"
           >
             <img
               src={tech.icon}

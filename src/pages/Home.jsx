@@ -13,19 +13,19 @@ export default function Home() {
         <ProofOfWork />
         <section className="flex flex-col items-center px-4 pb-16 sm:px-8 lg:px-12">
           <GitHubActivity username="Moeez34" showMonths />
-          <figure className="relative mt-10 w-full max-w-[720px] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-7 text-left sm:p-8">
+          <figure className="relative mt-10 w-full max-w-[720px] overflow-hidden rounded-2xl border border-ink-border/60 bg-ink-text/[0.02] p-7 text-left sm:p-8">
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute left-4 top-1 select-none font-quote text-[7rem] italic leading-none text-white/10 sm:left-6 sm:text-[8rem]"
+              className="pointer-events-none absolute left-4 top-1 select-none font-quote text-[7rem] italic leading-none text-ink-text/10 sm:left-6 sm:text-[8rem]"
             >
               &ldquo;
             </span>
-            <blockquote className="relative font-quote text-2xl italic leading-snug tracking-tight text-neutral-100 sm:text-3xl">
+            <blockquote className="relative font-quote text-2xl italic leading-snug tracking-tight text-ink-title sm:text-3xl">
               Moeez is a great software engineer. I tried to hire them, but they
               said my codebase needed a rewrite.
             </blockquote>
-            <figcaption className="mt-6 flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-neutral-400">
-              <span aria-hidden="true" className="h-[1px] w-4 bg-neutral-600" />
+            <figcaption className="mt-6 flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-ink-muted">
+              <span aria-hidden="true" className="h-[1px] w-4 bg-ink-muted" />
               <span>Elon Musk</span>
             </figcaption>
           </figure>

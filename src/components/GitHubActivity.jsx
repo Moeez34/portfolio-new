@@ -238,7 +238,7 @@ const Tooltip = ({ hovered, reduceMotion }) => {
     >
       <motion.div
         ref={ref}
-        className="whitespace-nowrap rounded-lg bg-[#f2f2ee] px-2 py-1 text-[11px] font-medium text-black shadow-md"
+        className="whitespace-nowrap rounded-lg bg-ink-title px-2 py-1 text-[11px] font-medium text-ink shadow-md"
         initial={reduceMotion ? false : { opacity: 0, scale: 0.94 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={reduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.94 }}
@@ -324,7 +324,7 @@ const ContributionGrid = ({
               <motion.div
                 key={day.date}
                 onPointerEnter={hover(day)}
-                className="shrink-0 rounded-[3px] bg-white/[0.08]"
+                className="shrink-0 rounded-[3px] bg-ink-text/10"
                 style={{ width: cellSize, height: cellSize }}
                 initial={reduceMotion ? false : { opacity: 0, scale: 0.4 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -361,7 +361,7 @@ const Avatar = ({ repo, layoutId, transition, className }) => (
     layoutId={layoutId}
     transition={transition}
     className={cn(
-      "grid size-7 shrink-0 place-items-center overflow-hidden rounded-full bg-[#2a2a2a] text-[11px] font-medium uppercase text-ink-text ring-2 ring-black",
+      "grid size-7 shrink-0 place-items-center overflow-hidden rounded-full bg-avatar text-[11px] font-medium uppercase text-ink-text ring-2 ring-ink",
       "[&_img]:size-full [&_img]:object-cover [&_svg]:size-full",
       className,
     )}
@@ -372,7 +372,7 @@ const Avatar = ({ repo, layoutId, transition, className }) => (
 
 const RepoRow = ({ repo, layoutId, transition }) => {
   const className =
-    "flex items-center gap-3 rounded-xl mx-2 px-2 py-2 transition-colors hover:bg-white/5";
+    "flex items-center gap-3 rounded-xl mx-2 px-2 py-2 transition-colors hover:bg-ink-text/5";
 
   const content = (
     <>
@@ -404,7 +404,7 @@ const Chevron = ({ open, transition }) => (
     strokeLinecap="round"
     strokeLinejoin="round"
     aria-hidden
-    className="size-7 text-[#71767b]"
+    className="size-7 text-ink-muted"
     initial={false}
     animate={{ rotate: open ? 180 : 0 }}
     transition={transition}
@@ -488,7 +488,7 @@ export function GitHubActivity({
     <div
       data-slot="github-activity"
       className={cn(
-        "relative max-w-full overflow-hidden rounded-[28px] border border-ink-border/60 bg-[#0b0b0b] p-4",
+        "relative max-w-full overflow-hidden rounded-[28px] border border-ink-border/60 bg-surface-raised p-4",
         repos.length > 0 && "pb-[76px]",
         className,
       )}
@@ -516,7 +516,7 @@ export function GitHubActivity({
           data-slot="github-activity-panel"
           data-state={open ? "open" : "closed"}
           className={cn(
-            "absolute inset-x-3 bottom-3 overflow-hidden border border-ink-border/60 bg-[#141414]/95 backdrop-blur-xl",
+            "absolute inset-x-3 bottom-3 overflow-hidden border border-ink-border/60 bg-surface-hover/95 backdrop-blur-xl",
             open && "top-3",
           )}
           style={{ borderRadius: 18 }}
@@ -552,7 +552,7 @@ export function GitHubActivity({
                 aria-label={
                   open ? "Hide top repositories" : "Show top repositories"
                 }
-                className="grid size-7 shrink-0 place-items-center rounded-full bg-[#1f1f1f]"
+                className="grid size-7 shrink-0 place-items-center rounded-full bg-surface-hover"
               >
                 <Chevron open={open} transition={transition} />
               </button>

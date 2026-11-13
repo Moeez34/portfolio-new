@@ -11,9 +11,9 @@ function ProjectCard({ project }) {
         href={project.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="block overflow-hidden rounded-2xl border border-ink-border/80 bg-[#0b0b0b] transition-colors duration-300 hover:border-[#4a4f54]"
+        className="block overflow-hidden rounded-2xl border border-ink-border/80 bg-surface-raised transition-colors duration-300 hover:border-line-hover"
       >
-        <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#050505]">
+        <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface-sunken">
           {project.image ? (
             <img
               src={project.image}
@@ -23,7 +23,7 @@ function ProjectCard({ project }) {
               className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02]"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#141414] via-[#0b0b0b] to-[#1b1b1b] p-8">
+            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-surface-hover via-surface-raised to-surface-soft p-8">
               <p className="font-display text-2xl font-bold text-ink-title">
                 {project.title}
               </p>
@@ -43,7 +43,7 @@ function ProjectCard({ project }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Visit ${project.title}`}
-              className="inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-ink-border text-ink-muted transition-colors hover:border-[#4a4f54] hover:text-ink-text"
+              className="inline-flex size-9 shrink-0 items-center justify-center rounded-full border border-ink-border text-ink-muted transition-colors hover:border-line-hover hover:text-ink-text"
             >
               <ArrowUpRight size={18} strokeWidth={1.8} />
             </a>

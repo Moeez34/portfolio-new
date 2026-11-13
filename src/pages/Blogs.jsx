@@ -11,9 +11,9 @@ function BlogCard({ blog }) {
         href={blog.href}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-4 rounded-xl border border-ink-border/80 bg-[#0b0b0b] p-3 transition-colors duration-300 hover:border-[#4a4f54] sm:gap-5 sm:p-4"
+        className="flex items-center gap-4 rounded-xl border border-ink-border/80 bg-surface-raised p-3 transition-colors duration-300 hover:border-line-hover sm:gap-5 sm:p-4"
       >
-        <div className="relative size-24 shrink-0 overflow-hidden rounded-lg bg-[#050505] sm:size-28">
+        <div className="relative size-24 shrink-0 overflow-hidden rounded-lg bg-surface-sunken sm:size-28">
           <img
             src={blog.image}
             alt={`${blog.title} cover`}
