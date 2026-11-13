@@ -22,7 +22,7 @@ export default function NavBar() {
   const items = [
     {
       label: "Home",
-      href: "#home",
+      href: "/",
       icon: (
         <img
           src="/icons/home.png"
@@ -34,7 +34,7 @@ export default function NavBar() {
     },
     {
       label: "About",
-      href: "#about",
+      href: "/#about",
       icon: <UserRound className="size-5 text-[#d6d6d6] transition-colors group-hover:text-white" strokeWidth={1.8} />,
     },
     {
@@ -58,7 +58,7 @@ export default function NavBar() {
     },
     {
       label: "Blogs",
-      href: "#blogs",
+      href: "/#blogs",
       icon: (
         <HugeiconsIcon
           icon={BloggerIcon}
