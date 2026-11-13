@@ -149,17 +149,6 @@ html.light .footer-glow {
   );
 }
 
-/* smooth theme switch (only applied while toggling) */
-html.theme-anim,
-html.theme-anim *,
-html.theme-anim *::before,
-html.theme-anim *::after {
-  transition-property: background-color, border-color, color, fill, stroke,
-    box-shadow, opacity;
-  transition-duration: 320ms;
-  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
 ::selection {
   background: rgba(29, 155, 240, 0.35);
   color: #ffffff;
@@ -194,6 +183,14 @@ html.light ::selection {
     outline: 2px solid var(--color-focus);
     outline-offset: 2px;
   }
+}
+
+/* during a theme switch, skip per-element color transitions: the swap paints
+   once and a single overlay handles the crossfade */
+html.theme-instant *:not(.theme-fade),
+html.theme-instant *::before,
+html.theme-instant *::after {
+  transition: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
