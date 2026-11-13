@@ -34,7 +34,7 @@ export default function NavBar() {
     },
     {
       label: "About",
-      href: "/#about",
+      href: "/about",
       icon: <UserRound className="size-5 text-[#d6d6d6] transition-colors group-hover:text-white" strokeWidth={1.8} />,
     },
     {

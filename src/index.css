@@ -17,6 +17,8 @@
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
     monospace;
+  --font-jetbrains: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+    monospace;
   --font-quote: "Newsreader", Georgia, "Times New Roman", serif;
 
   --color-ink: #000000;
